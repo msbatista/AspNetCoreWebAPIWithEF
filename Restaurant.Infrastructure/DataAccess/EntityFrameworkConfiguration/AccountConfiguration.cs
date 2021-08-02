@@ -16,11 +16,7 @@ namespace Restaurant.Infrastructure.DataAccess.EntityFrameworkConfiguration
 
             builder.Property(account => account.CreationDate).HasDefaultValueSql("GETDATE()");
 
-            // builder.Property(account => account.ClientId).UsePropertyAccessMode(PropertyAccessMode.FieldDuringConstruction).HasColumnType("BIGINT");
-
             builder.HasMany(account => account.Orders).WithOne().HasForeignKey("AccountId");
-
-            // builder.HasOne(account => account.Client).WithOne(client => client.Account).HasForeignKey<Account>(account => account.ClientId);
         }
     }
 }

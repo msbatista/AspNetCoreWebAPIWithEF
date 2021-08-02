@@ -8,17 +8,17 @@ namespace Restaurant.Domain.Model.Orders
     {
         public Money GetTotalDebit()
         {
-            if (this.Count == 0)
+            if (Count == 0)
             {
                 return new Money(0, new Currency(string.Empty));
             }
 
-            if (this.Count == 0)
+            if (Count == 0)
             {
                 return new Money(0, new Currency(string.Empty));
             }
 
-            Money total = new Money(0, this.First().Products.GetTotalPrice().Currency);
+            Money total = new(0, this.First().Products.GetTotalPrice().Currency);
 
             return this.Aggregate(total, (current, order) =>
             {

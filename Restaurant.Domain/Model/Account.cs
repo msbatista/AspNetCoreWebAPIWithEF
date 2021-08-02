@@ -7,10 +7,8 @@ namespace Restaurant.Domain.Model
     public class Account : IAccount
     {
         public long Id { get; set; }
-       // public long ClientId { get; set; }
         public DateTime CreationDate { get; }
-        // public virtual Client Client { get; set; }
-        public virtual OrdersCollection Orders { get; set; }
+        public virtual OrdersCollection Orders { get; } = new OrdersCollection();
 
         public void AddOrder(Order order)
         {

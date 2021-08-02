@@ -8,12 +8,12 @@ namespace Restaurant.Domain.Model.Products
     {
         public Money GetTotalPrice()
         {
-            if (this.Count == 0)
+            if (Count == 0)
             {
                 return new Money(0, new Currency(string.Empty));
             }
 
-            Money total = new Money(0, this.First().Amount.Currency);
+            Money total = new(0, this.First().Amount.Currency);
 
             return this.Aggregate(total, (current, product) =>
             {

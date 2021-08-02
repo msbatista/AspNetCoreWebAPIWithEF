@@ -24,7 +24,8 @@ namespace Restaurant
 
             services.AddControllers();
 
-            services.AddDbContext<RestaurantDbContext>(options => {
+            services.AddDbContext<RestaurantDbContext>(options =>
+            {
                 var connectionString = Configuration.GetConnectionString("RestaurantDb");
                 options.UseSqlServer(connectionString, option =>
                 {
